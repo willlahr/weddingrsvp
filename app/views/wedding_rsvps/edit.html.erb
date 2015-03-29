@@ -1,6 +1,22 @@
 <div class="white-wrap">
   <h1>Tell us who is coming</h1>
 
+  <%= form_tag do %>
+  <div class="white-wrap">
+    <h3>You</h3>
+     
+
+
+  </div>
+
+      <div class="person-div white-wrap" data-style="display:none;" data-person-id="" >
+       first name:, last name:,  child/adult, age:
+      </div>
+
+ <%= link_to 'Add another person','#', class: 'btn btn-default' %>
+
+      <%= link_to 'Finished','#', class: 'btn btn-success' %>
+      <% end %>
 
 
 </div>

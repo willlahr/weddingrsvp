@@ -21,6 +21,7 @@ class WeddingRsvpsController < ApplicationController
       rsvp = existing_rsvp.first
       redirect_to email_verify_wedding_rsvp_path(rsvp_id: rsvp.id  )
 
+
       else
 
       puts 'New RSVP needed'
@@ -39,10 +40,13 @@ class WeddingRsvpsController < ApplicationController
   end
 
   def send_edit_link
+    redirect_to edit_link_thanks_wedding_rsvp_path(rsvp_id: params[:rsvp_id])
 
   end
 
   def edit_link_thanks
+    rsvp = Rsvp.find(params[:rsvp_id])
+    @email = rsvp.email
 
   end
 
