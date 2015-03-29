@@ -12,7 +12,14 @@ class WeddingRsvpsController < ApplicationController
 
     puts "create called"
 
+    # see if email exists find
+    existing_rsvp = Rsvp.where(:email => params[:email])
+    if existing_rsvp.count > 0
+      puts 'Existing RSVP'
 
+      else
+
+    end
 
   end
 
