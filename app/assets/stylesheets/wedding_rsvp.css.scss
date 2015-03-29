@@ -1,0 +1,41 @@
+// Place all the styles related to the wedding_rsvp controller here.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.white-wrap, .white-wrap-narrow{background: #fff;padding:15px; border:1px solid #eee;border-radius: 4px;margin-bottom: 20px;}
+.white-wrap-narrow {
+  max-width: 640px;
+  margin: 0 auto 20px auto;
+}
+.white-wrap h1, .white-wrap h2, .white-wrap h3{margin-top:0; font-family: 'norse-bold'}
+
+body {background: image_url('scene_jpeg_resized.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+};
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+};
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+};
+
+@font-face {
+  font-family: 'norse-bold';
+  font-style: normal;
+  font-weight: normal;
+  src: asset_url('fonts/norse-bold.otf') format('truetype');
+}
