@@ -24,6 +24,12 @@ class WeddingRsvpsController < ApplicationController
 
       else
 
+        if params[:change]
+          redirect_to '/'
+          flash[:notice] = "I didn't find any records for that email address"
+          return
+        end
+
       puts 'New RSVP needed'
       rsvp = Rsvp.new
       rsvp.email = params[:email]

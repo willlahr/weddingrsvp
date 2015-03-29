@@ -1,5 +1,12 @@
 <div class="white-wrap white-wrap-narrow">
   <h1>Pterowedding RSVP </h1>
+
+  <% if flash[:notice] %>
+  <div class="white-wrap error-wrap">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+
   <p>Hurrah! you've found the right place to RSVP for our wedding.</p>
 
   <%= link_to('I need to RSVP for the first time', new_wedding_rsvp_path() , class: 'btn btn-success' ) %>
