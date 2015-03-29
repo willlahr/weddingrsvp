@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ENV['NOKOGIRI_USE_SYSTEM_LIBRARIES']='true'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
