@@ -30,7 +30,8 @@ body {background: image_url('scene_jpeg_resized.jpg') no-repeat center center fi
 .inner {
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 90%;
+  max-width: 300px;
 };
 
 @font-face {
