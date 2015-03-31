@@ -11,4 +11,3 @@ $(document).ready ->
         else
           $(@).fadeOut()
 
-    alert 'select hide changed'
