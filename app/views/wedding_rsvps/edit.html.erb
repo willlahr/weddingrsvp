@@ -18,20 +18,20 @@
       <div class="select-hide-group">
         <div class="form-group">
           <%= label_tag :attending %>
-          <%= select_tag :attending, options_for_select([ ['I will be attending', 'yes'], ['I will not be attending', 'no']]), class: 'form-control select-hide' %>
+          <%= select_tag :attending, options_for_select([ ['--Choose--','choose'], ['I will be attending', 'yes'], ['I will not be attending', 'no']], selected: 'choose', disabled: 'choose'), class: 'form-control select-hide' %>
         </div>
 
-        <div class="select-hide-content" data-select-hide-for="no">
+        <div class="select-hide-content" data-select-hide-for="no" style="display:none;">
           <div class="form-group select-hide">
             <%= label_tag :message %>
             <%= text_area_tag :message, '', class: 'form-control', placeholder: 'add a message if you want to - this is optional!' %>
           </div>
         </div>
-        <div class="select-hide-content"  data-select-hide-for="yes">
+        <div class="select-hide-content"  data-select-hide-for="yes" style="display:none;">
           <div class="select-hide-group">
           <div class="form-group">
             <%= label_tag :size %>
-            <%= select_tag :size, options_for_select([['Grown up', 'grown_up'], ['Child', 'child']]), class: 'form-control select-hide' %>
+            <%= select_tag :size, options_for_select([['-- Choose --','choose'],['Grown up', 'grown_up'], ['Child', 'child']], disabled: 'choose', selected: 'choose'), class: 'form-control select-hide' %>
           </div>
 
           <div class="form-group select-hide-content"  data-select-hide-for="child" >
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <div class="white-wrap white-wrap-narrow">
+    <div class="white-wrap white-wrap-narrow sample-person" style="display:none;" >
 
       <h3>+1</h3>
 
