@@ -24,7 +24,7 @@ class WeddingRsvpsController < ApplicationController
 
       else
 
-        if params[:change]
+        if params[:change] != ''
           redirect_to '/'
           flash[:notice] = "I didn't find any records for that email address"
           return
@@ -63,7 +63,14 @@ class WeddingRsvpsController < ApplicationController
        redirect_to '/'
        return
      end
+
+     begin
      rsvp = Rsvp.find(params[:rsvp_id])
+     rescue
+       sleep 4
+       rsvp = Rsvp.find(params[:rsvp_id])
+     end
+
      unless params[:validation_string] == rsvp.validation_string
        redirect_to '/'
      end

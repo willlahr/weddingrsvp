@@ -1,16 +1,33 @@
 <div class="white-wrap white-wrap-narrow">
-  <h1>Pterowedding RSVP </h1>
 
-  <% if flash[:notice] %>
-  <div class="white-wrap error-wrap">
-  <%= flash[:notice] %>
+
+  <div class="row">
+    <div class="col-md-2">
+      <%= image_tag(asset_path('roz.png'), width: 80) %>
+    </div>
+    <div class="col-md-8">
+      <h1>Pterowedding RSVP </h1>
+      <% if flash[:notice] %>
+          <div class="white-wrap error-wrap">
+            <%= flash[:notice] %>
+          </div>
+      <% end %>
+
+      <p>Hurrah! you've found the right place to RSVP for our wedding.</p>
+
+      <%= link_to(' RSVP for the first time', new_wedding_rsvp_path(), class: 'btn btn-success') %>
+
+      <%= link_to('Change some details', new_wedding_rsvp_path(change: true), class: 'btn btn-info') %>
+    </div>
+
+    <div class="col-md-2">
+      <%= image_tag(asset_path('will.png'), width: 70) %>
+    </div>
   </div>
-<% end %>
-
-  <p>Hurrah! you've found the right place to RSVP for our wedding.</p>
-
-  <%= link_to('I need to RSVP for the first time', new_wedding_rsvp_path() , class: 'btn btn-success' ) %>
-  <%= link_to('I need to change some details', new_wedding_rsvp_path(change: true) , class: 'btn btn-info' ) %>
+</div>
 
 
+<div class="white-wrap white-wrap-narrow">
+
+  <%= link_to 'More wedding information', 'http://www.pterowedding.info' %>
 </div>
