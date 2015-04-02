@@ -3,7 +3,7 @@
 
   <div class="row">
     <div class="col-xs-3">
-      <%= image_tag(asset_path('roz.png'),  style: 'width:100%; max-width:100%;') %>
+      <%= image_tag(asset_path('roz-v2.png'),  style: 'width:100%; max-width:100%; vertical-align: middle;') %>
     </div>
     <div class="col-xs-6">
       <h1>Pterowedding RSVP </h1>
@@ -13,7 +13,8 @@
           </div>
       <% end %>
 
-      <p>Hurrah! you've found the right place to RSVP for our wedding.</p>
+      <p>Hurrah! you've found the right place to RSVP for our wedding. Use the buttons below to RSVP or change your details.  To find out more about our wedding go to our  <%= link_to 'wedding information site', 'http://www.pterowedding.info' %>.
+      </p>
 
       <%= link_to('RSVP (first time)', new_wedding_rsvp_path(), class: 'btn btn-success') %>
 
@@ -21,13 +22,9 @@
     </div>
 
     <div class="col-xs-3">
-      <%= image_tag(asset_path('will.png'), style: 'width:100%; max-width:100%;  ' ) %>
+      <%= image_tag(asset_path('will-v2.png'), style: 'width:100%; max-width:100%; vertical-align: middle; ' ) %>
     </div>
   </div>
 </div>
 
 
-<div class="white-wrap white-wrap-narrow">
-
-  <%= link_to 'More wedding information', 'http://www.pterowedding.info' %>
-</div>
