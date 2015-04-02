@@ -1,8 +1,9 @@
+<%= javascript_include_tag "welcome_page" %>
 <div class="white-wrap white-wrap-narrow">
 
 
   <div class="row">
-    <div class="col-xs-3">
+    <div class="col-xs-3 roz">
       <%= image_tag(asset_path('roz-v2.png'),  style: 'width:100%; max-width:100%; vertical-align: middle;') %>
     </div>
     <div class="col-xs-6">
@@ -21,7 +22,7 @@
       <%= link_to('Change details', new_wedding_rsvp_path(change: true), class: 'btn btn-info') %>
     </div>
 
-    <div class="col-xs-3">
+    <div class="col-xs-3 will">
       <%= image_tag(asset_path('will-v2.png'), style: 'width:100%; max-width:100%; vertical-align: middle; ' ) %>
     </div>
   </div>
