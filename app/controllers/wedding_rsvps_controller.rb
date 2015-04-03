@@ -91,6 +91,7 @@ class WeddingRsvpsController < ApplicationController
 
     @person = Person.new
     @person
+    @name = "+#{params[:index]}"
     render :layout => false
   end
 

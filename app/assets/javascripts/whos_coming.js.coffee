@@ -1,4 +1,9 @@
 $(document).ready ->
+  $('.hidden').fadeIn()
+  $('.hidden').removeClass('hidden')
+
+
+
   $(document).on 'change', '.select-hide', ->
     group = $(@).closest('.select-hide-group')
     selected_value = $(@).val()
@@ -10,7 +15,15 @@ $(document).ready ->
           $(@).fadeIn()
         else
           $(@).fadeOut()
+
   $(document).on 'click', '.add-person', ->
-    $.get './ajax_new_person', (res) ->
+    rsvp_id = $(@).data('rsvp-id')
+    validation_string = $(@).data('validation-string')
+    count = $('.people').data('count')
+    $('.people').data('count',count + 1)
+    $.get "./ajax_new_person?rsvp_id=#{rsvp_id}&validation_string=#{validation_string}&index=#{count}", (res) ->
       $('.people').append(res)
+      $('.person.hidden').fadeIn()
+      $('.person.hidden').removeClass('hidden')
+
 
