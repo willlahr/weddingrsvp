@@ -3,28 +3,28 @@
   <h1>Who is coming?</h1>
 </div>
 
-<%= form_tag do %>
+<%= form_for @rsvp do %>
     <% count = @rsvp.people.count  %>
     <div class="people" data-people-count="<%=  @rsvp.people.length  %>" data-count="<%=count%>">
     <% @rsvp.people.each_with_index  do |person_id, index|
         @person = Person.find(person_id)
        if index == 0
-         @name = @person.name || 'You'
+         @name = @person.first_name || 'You'
        else
-         @name = @person.name || "+#{index}"
+         @name = @person.first_name || "+#{index}"
        end
     %>
       <%=  render partial: 'person', locals: {index: index}  %>
     <%end%>
     </div>
 
-<% end %>
 
     <div class="white-wrap white-wrap-narrow">
       <%= link_to 'Add another person', '#', class: 'btn btn-default add-person', 'data-rsvp-id' => params[:rsvp_id], 'data-validation-string' => params[:validation_string] %>
 
-      <%= link_to 'Finished', '#', class: 'btn btn-success' %>
+      <%= submit_tag 'Finished', class: 'btn btn-success' %>
 
+<% end %>
 
 
 

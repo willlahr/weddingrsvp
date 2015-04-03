@@ -8,7 +8,7 @@ class Rsvp < AWS::Record::Model
   timestamps
 
   def edit_url
-    "http://rsvp.pterowedding.info/wedding_rsvp/edit?rsvp_id=#{self.id}&validation_string=#{self.validation_string}"
+    "http://rsvp.pterowedding.info/rsvps/edit?rsvp_id=#{self.id}&validation_string=#{self.validation_string}"
   end
 
 end

@@ -1,4 +1,4 @@
-class WeddingRsvpsController < ApplicationController
+class RsvpsController < ApplicationController
   def index
 
   end
@@ -19,7 +19,7 @@ class WeddingRsvpsController < ApplicationController
     if existing_rsvp.count > 0
       puts 'Existing RSVP'
       rsvp = existing_rsvp.first
-      redirect_to email_verify_wedding_rsvp_path(rsvp_id: rsvp.id)
+      redirect_to email_verify_rsvp_path(rsvp_id: rsvp.id)
 
 
     else
@@ -45,7 +45,7 @@ class WeddingRsvpsController < ApplicationController
 
       sleep 2
 
-      redirect_to edit_wedding_rsvp_path(rsvp_id: rsvp.id, validation_string: rsvp.validation_string)
+      redirect_to edit_rsvp_path(rsvp_id: rsvp.id, validation_string: rsvp.validation_string)
     end
 
   end
@@ -59,7 +59,7 @@ class WeddingRsvpsController < ApplicationController
 
     RsvpMailer.change_details(@rsvp).deliver
 
-    redirect_to edit_link_thanks_wedding_rsvp_path(rsvp_id: params[:rsvp_id])
+    redirect_to edit_link_thanks_rsvp_path(rsvp_id: params[:rsvp_id])
 
   end
 
@@ -116,6 +116,8 @@ class WeddingRsvpsController < ApplicationController
   end
 
   def update
+    puts "hello"
+
   end
 
   def show

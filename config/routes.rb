@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'welcome_page/index'
-  resource :wedding_rsvp do
+  resource :rsvp do
     get 'email_verify'
     post 'send_edit_link'
     get 'edit_link_thanks'

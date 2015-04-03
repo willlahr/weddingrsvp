@@ -7,7 +7,7 @@
       <p>Please enter your email address.  This is so that you can come back and change your preferences and details later.  You can RSVP for as many people as you like </p>
     <%end%>
 
-  <%= form_tag wedding_rsvp_path do %>
+  <%= form_tag rsvp_path do %>
   <%= hidden_field_tag :change, params['change'] %>
   <%= email_field_tag :email,'', placeholder: 'you@your_email.com', class: 'form-control' %>
 <br>
