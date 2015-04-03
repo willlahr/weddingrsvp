@@ -10,4 +10,7 @@ $(document).ready ->
           $(@).fadeIn()
         else
           $(@).fadeOut()
+  $(document).on 'click', '.add-person', ->
+    $.get './ajax_new_person', (res) ->
+      $('.people').append(res)
 
