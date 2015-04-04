@@ -16,7 +16,8 @@ $(document).ready ->
         else
           $(@).fadeOut()
 
-  $(document).on 'click', '.add-person', ->
+  $(document).on 'click', '.add-person', (event) ->
+    event.preventDefault()
     rsvp_id = $(@).data('rsvp-id')
     validation_string = $(@).data('validation-string')
     count = $('.people').data('count')

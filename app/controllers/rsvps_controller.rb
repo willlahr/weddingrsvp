@@ -117,6 +117,29 @@ class RsvpsController < ApplicationController
 
   def update
     puts "hello"
+    params['person'].each do |person|
+      if person['id']
+        @person = Person.find(person['id'])
+      else
+        @person =  Person.new
+      end
+
+      @person.first_name =person['first_name'] if person['first_name']
+      @person.last_name = person['last_name'] if person['last_name']
+      @person.attending = person['attending'] if person['attending']
+      @person.message =   person['message']   if person['message']
+      @person.size  =     person['size']      if person['size']
+      @person.age   =     person['age']       if person['age']
+
+      @person.save
+
+
+    end
+
+  end
+
+  def food
+    redirect_to rsvp_food_path(rsvp_id: rsvp.id, validation_string: rsvp.validation_string)
 
   end
 

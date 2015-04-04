@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     post 'send_edit_link'
     get 'edit_link_thanks'
     get 'ajax_new_person'
+    get 'food'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
