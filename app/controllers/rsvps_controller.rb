@@ -207,6 +207,14 @@ class RsvpsController < ApplicationController
 
 
   def camping_parking
+    @rsvp = Rsvp.find(params[:rsvp_id])
+    unless params[:rsvp_id] && params[:validation_string]
+      redirect_to '/'
+      return
+    end
+    unless params[:validation_string] == @rsvp.validation_string
+      redirect_to '/'
+    end
 
   end
 
