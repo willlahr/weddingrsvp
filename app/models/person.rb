@@ -8,6 +8,8 @@ class Person  < AWS::Record::Model
   integer_attr :age
   string_attr :rsvp_id
   string_attr :message
+  string_attr :food_choice
+  string_attr :food_comments
   string_attr :size
   timestamps
 

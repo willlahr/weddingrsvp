@@ -180,6 +180,32 @@ class RsvpsController < ApplicationController
 
   end
 
+  def update_food
+    @rsvp = Rsvp.find(params[:rsvp_id])
+    unless params[:rsvp_id] && params[:validation_string]
+      redirect_to '/'
+      return
+    end
+    unless params[:validation_string] == @rsvp.validation_string
+      redirect_to '/'
+    end
+
+    if params['person']
+      params['person'].each do |id, person|
+
+        @person = Person.find(id)
+
+        @person.food_choice = person['food_choice']
+        @person.food_comments = person['food_comments']
+        @person.save
+
+      end
+    end
+    redirect_to camping_parking_rsvp_path(rsvp_id: @rsvp.id, validation_string: @rsvp.validation_string)
+
+  end
+
+
 
   def camping_parking
 

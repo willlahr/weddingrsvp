@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get 'ajax_new_person'
     get 'food'
     get 'final_thanks'
+    post 'update_food'
+    get 'camping_parking'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

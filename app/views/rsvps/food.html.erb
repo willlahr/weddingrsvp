@@ -8,7 +8,7 @@
       <h3>Hog </h3>
       <p>
         <strong>Hog roast, potatoes and salad.</strong>
-        Free range hog roast with traditional accessories (i.e. ciabatta rolls, apple sauce and stuffing). Served with roast potatoes and myriad salads in a formal dining long-table-based meal with cutler
+        Free range hog roast with traditional accessories (i.e. ciabatta rolls, apple sauce and stuffing). Served with roast potatoes and myriad salads in a formal dining long-table-based meal with cutlery.
       </p>
     </div>
     <div class="col-md-4">
@@ -25,8 +25,12 @@
   <p>There will be a triumph of desserts and cakes to follow for all of the types of food-eaters.</p>
 
 </div>
+<%= form_tag update_food_rsvp_path do %>
+    <%= hidden_field_tag 'rsvp_id', @rsvp.id %>
+    <%= hidden_field_tag 'validation_string', @rsvp.validation_string %>
 
-<div class="white-wrap">
+
+    <div class="white-wrap">
 <h3></h3>
   <table class="table">
     <thead>
@@ -39,12 +43,14 @@
     <tr>
 
       <td><%= person.first_name %></td>
-      <td><%= select_tag("person['#{person.id}'][food_choice]", options_for_select([['Please Choose','choose'],['Hog Roast','hog'],['Halloumi Stuffed Peppers','veg'],['Vegan Option','vegan'] ,['Diced Elephant','fake'],["Help! I can't eat any of these",'special']], disabled: 'choose' ) , class:'form-control'  ) %> </td>
-      <td><%= text_field_tag("person['#{person.id}'][food_comments]",'', class:'form-control', placeholder: 'I only eat round things') %> </td>
+      <td><%= select_tag("person[#{person.id}][food_choice]", options_for_select([['Please Choose','choose'],['Hog Roast','hog'],['Halloumi Stuffed Peppers','veg'],['Vegan Option','vegan'] ,['Diced Elephant','fake'],["Help! I can't eat any of these",'special']], disabled: 'choose', selected: person.food_choice), class:'form-control'  ) %> </td>
+      <td><%= text_field_tag("person[#{person.id}][food_comments]",person.food_comments, class:'form-control', placeholder: 'I only eat round things') %> </td>
 
     </tr>
     <% end %>
 
   </table>
 
+      <%= submit_tag 'Save food preferences', class: 'btn btn-success' %>
 </div>
+<% end %>
