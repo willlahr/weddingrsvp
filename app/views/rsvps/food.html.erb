@@ -1,5 +1,48 @@
 <div class="white-wrap">
 
   <h1>Food</h1>
-<p>this bit isn't finished, you'll be able to set up your food and accomodation from later today</p>
+
+</div>
+<div class="white-wrap">
+
+  <div class="row">
+    <div class="col-md-6">
+
+      <h3>Hog Roast</h3>
+
+      <p>
+
+      </p>
+    </div>
+    <div class="col-md-6">
+      <h3>Vegetarian Option</h3>
+      <p>
+
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div class="white-wrap">
+<h3></h3>
+  <table class="table">
+    <thead>
+    <th>Who</th>
+    <th>What</th>
+    <th>Special comments</th>
+
+    </thead>
+    <% @people_list.each do |person| %>
+    <tr>
+
+      <td><%= person.first_name %></td>
+      <td><%= select_tag("person['#{person.id}'][food_choice]", options_for_select([['Chooose','choose'],['Hog Roast','hog'],['Veg thing','veg'],['Diced Elephant','fake']] )   ) %> </td>
+      <td><%= text_field_tag("person['#{person.id}'][food_comments]",'') %> </td>
+
+    </tr>
+    <% end %>
+
+  </table>
+
 </div>

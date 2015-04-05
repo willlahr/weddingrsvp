@@ -121,6 +121,9 @@ class RsvpsController < ApplicationController
       redirect_to '/'
       return
     end
+    unless params[:validation_string] == @rsvp.validation_string
+      redirect_to '/'
+    end
     params['person'].each do |key, person|
       if person['id'] && person['id'] != ''
         @person = Person.find(person['id'])
@@ -149,11 +152,45 @@ class RsvpsController < ApplicationController
   end
 
   def food
+    unless params[:rsvp_id] && params[:validation_string]
+      redirect_to '/'
+      return
+    end
+    @rsvp = Rsvp.find(params[:rsvp_id])
+
+    unless params[:validation_string] == @rsvp.validation_string
+      redirect_to '/'
+    end
+
+    attending = 0
+    @people_list = []
+    @rsvp.people.each do |person_id|
+      person = Person.find(person_id)
+      if person.attending == "yes"
+        @people_list << person
+      end
+
+    end
+
+    if @people_list.length == 0
+      redirect_to final_thanks_rsvp_path
+    end
+
+
 
   end
+
+
+  def camping_parking
+
+  end
+
 
   def show
   end
 
+  def final_thanks
+
+  end
 
 end

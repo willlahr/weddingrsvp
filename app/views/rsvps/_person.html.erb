@@ -38,7 +38,7 @@
 
       <div class="form-group select-hide-content"  data-select-hide-for="child" style="<%= 'display:none;' unless size == 'child' %>" />
       <%= label_tag :age %>
-      <%= number_field_tag "person[#{index}][age]", '', class: 'form-control', placeholder: 100 %>
+      <%= number_field_tag "person[#{index}][age]", @person.age || '', class: 'form-control', placeholder: 100 %>
     </div>
   </div>
 </div>
