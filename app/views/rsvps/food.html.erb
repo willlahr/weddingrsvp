@@ -2,25 +2,27 @@
 
   <h1>Food</h1>
 
-</div>
-<div class="white-wrap">
-
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
 
-      <h3>Hog Roast</h3>
-
+      <h3>Hog </h3>
       <p>
-
+        <strong>Hog roast, potatoes and salad.</strong>
+        Free range hog roast with traditional accessories (i.e. ciabatta rolls, apple sauce and stuffing). Served with roast potatoes and myriad salads in a formal dining long-table-based meal with cutler
       </p>
     </div>
-    <div class="col-md-6">
-      <h3>Vegetarian Option</h3>
+    <div class="col-md-4">
+      <h3>Vegetarian </h3>
       <p>
-
-      </p>
+        <strong>Halloumi-stuffed peppers, potatoes and salad.</strong>
+        Peppers containing exciting and unexpected, yet wholly delicious fillings such as halloumi. Also to be served with myriad salads and some sort of meat-free potato in a joint option with the meat-eaters for formal table-based dining.      </p>
+    </div>
+    <div>
+      <h3>Vegan </h3>
+      <p>Vegan options are yet to be decided but will inevitably be delicious and accompanied with forks, tables and salads and everyone else. Will asked me to write more text but I’m running out of inspiration.</p>
     </div>
   </div>
+  <p>There will be a triumph of desserts and cakes to follow for all of the types of food-eaters.</p>
 
 </div>
 
@@ -30,15 +32,15 @@
     <thead>
     <th>Who</th>
     <th>What</th>
-    <th>Special comments</th>
+    <th>Comments </th>
 
     </thead>
     <% @people_list.each do |person| %>
     <tr>
 
       <td><%= person.first_name %></td>
-      <td><%= select_tag("person['#{person.id}'][food_choice]", options_for_select([['Chooose','choose'],['Hog Roast','hog'],['Veg thing','veg'],['Diced Elephant','fake']] )   ) %> </td>
-      <td><%= text_field_tag("person['#{person.id}'][food_comments]",'') %> </td>
+      <td><%= select_tag("person['#{person.id}'][food_choice]", options_for_select([['Please Choose','choose'],['Hog Roast','hog'],['Halloumi Stuffed Peppers','veg'],['Vegan Option','vegan'] ,['Diced Elephant','fake'],["Help! I can't eat any of these",'special']], disabled: 'choose' ) , class:'form-control'  ) %> </td>
+      <td><%= text_field_tag("person['#{person.id}'][food_comments]",'', class:'form-control', placeholder: 'I only eat round things') %> </td>
 
     </tr>
     <% end %>
