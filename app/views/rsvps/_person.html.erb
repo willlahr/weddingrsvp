@@ -8,7 +8,7 @@
 </div>
 <div class="form-group">
   <%= label_tag :last_name %>
-  <%= text_field_tag "person[#{index}][last_name]", '', class: 'form-control', placeholder: 'Lahurrie' %>
+  <%= text_field_tag "person[#{index}][last_name]", @person.last_name , class: 'form-control', placeholder: 'Lahurrie' %>
 </div>
 <div class="select-hide-group">
   <div class="form-group">
@@ -21,20 +21,21 @@
     <%= select_tag "person[#{index}][attending]", options_for_select([ ['--Choose--','choose'], ['Will be attending', 'yes'], ['Will not be attending', 'no']], selected: selected, disabled: 'choose'), class: 'form-control select-hide' %>
   </div>
 
-  <div class="select-hide-content" data-select-hide-for="no" style="display:none;">
+  <div class="select-hide-content" data-select-hide-for="no" style="<%= 'display:none;' unless @person.attending == false %>">
     <div class="form-group select-hide">
       <%= label_tag :message %>
       <%= text_area_tag "person[#{index}][message]", '', class: 'form-control', placeholder: 'add a message if you want to - this is optional!' %>
     </div>
   </div>
-  <div class="select-hide-content"  data-select-hide-for="yes" style="display:none;">
+  <div class="select-hide-content"  data-select-hide-for="yes" style="<%= 'display:none;' unless @person.attending  %>">
     <div class="select-hide-group">
       <div class="form-group">
         <%= label_tag :size %>
-        <%= select_tag "person[#{index}][size]", options_for_select([['-- Choose --','choose'],['Grown up', 'grown_up'], ['Child', 'child']], disabled: 'choose', selected: 'choose'), class: 'form-control select-hide' %>
+        <% size = @person.size || 'choose' %>
+        <%= select_tag "person[#{index}][size]", options_for_select([['-- Choose --','choose'],['Grown up', 'grown_up'], ['Child', 'child']], disabled: 'choose', selected: size ), class: 'form-control select-hide' %>
       </div>
 
-      <div class="form-group select-hide-content"  data-select-hide-for="child" style="display:none" />
+      <div class="form-group select-hide-content"  data-select-hide-for="child" style="<%= 'display:none;' unless size == 'child' %>" />
       <%= label_tag :age %>
       <%= number_field_tag "person[#{index}][age]", '', class: 'form-control', placeholder: 100 %>
     </div>
