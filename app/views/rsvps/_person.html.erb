@@ -24,7 +24,8 @@
   <div class="select-hide-content" data-select-hide-for="no" style="<%= 'display:none;' unless @person.attending == "no" %>">
     <div class="form-group select-hide">
       <%= label_tag :message %>
-      <%= text_area_tag "person[#{index}][message]", '', class: 'form-control', placeholder: 'add a message if you want to - this is optional!' %>
+      <% message = @person.message || '' %>
+      <%= text_area_tag "person[#{index}][message]", message, class: 'form-control', placeholder: 'add a message if you want to - this is optional!' %>
     </div>
   </div>
   <div class="select-hide-content"  data-select-hide-for="yes" style="<%= 'display:none;' unless @person.attending  %>">
