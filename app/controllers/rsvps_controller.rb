@@ -38,6 +38,7 @@ class RsvpsController < ApplicationController
       rsvp.validation_string = SecureRandom.hex(20)
       rsvp.save
       person.rsvp_id = rsvp.id
+      person.made_rsvp=true
       person.save
 
       rsvp.people = [ person.id ]
