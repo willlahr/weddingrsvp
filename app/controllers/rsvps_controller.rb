@@ -147,6 +147,7 @@ class RsvpsController < ApplicationController
       @rsvp.save
 
     end
+    sleep 2
     redirect_to food_rsvp_path(rsvp_id: @rsvp.id, validation_string: @rsvp.validation_string)
 
 
@@ -193,13 +194,10 @@ class RsvpsController < ApplicationController
 
     if params['person']
       params['person'].each do |id, person|
-
         @person = Person.find(id)
-
         @person.food_choice = person['food_choice']
         @person.food_comments = person['food_comments']
         @person.save
-
       end
     end
     redirect_to camping_parking_rsvp_path(rsvp_id: @rsvp.id, validation_string: @rsvp.validation_string)

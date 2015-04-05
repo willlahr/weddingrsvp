@@ -1,3 +1,31 @@
 <div class="white-wrap">
-  <h1>Camping and parking</h1>
+  <h1>Accommodation and travel</h1>
+<p></p>
+  <%= form_tag do %>
+
+      <div class="select-hide-group">
+      <%=  select_tag :accomodation_type, options_for_select( [['--choose--','choose'],['We want to bring a tent/tents','camp'], ['We want to hire a tent','bellend'], ['Hotel / B&B','hotel'], ['No accomodation - just staying for the day','day-visit'],  ],  disabled: 'choose', selected: 'choose' ) , class:'form-control select-hide' %>
+
+        <div class="form-group select-hide-content white-wrap info-wrap"  data-select-hide-for="camp" style="<%= 'display:none;' unless false  %>" />
+        <strong>Hurrah!</strong>
+        <p>There is no charge for camping in the field. Water, toilets, basic showers and communal cooking facilities will be provided.   </p>
+        </div>
+
+      <div class="form-group select-hide-content white-wrap info-wrap"  data-select-hide-for="bellend" style="<%= 'display:none;' unless false  %>" />
+      <strong>Hurrah!</strong>
+      <p>To hire a tent please contact <%= link_to 'Cheltenham Yurt Hire','http://www.cheltenhamyurthire.co.uk/' %> directly and let them know it's for our wedding, payment is to them directly.  They will deliver and collect all of the tents together so you don't need to pay for delivery.</p>
+      <p>There is no charge for camping in the field. Water, toilets, basic showers and communal cooking facilities will be provided.   </p>
+
+      </div>
+
+
+      </div>
+
+
+
+
+
+<% end %>
+
+
 </div>
