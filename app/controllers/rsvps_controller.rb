@@ -116,13 +116,20 @@ class RsvpsController < ApplicationController
   end
 
   def update
-    puts "hello"
-    params['person'].each do |person|
-      if person['id']
+    @rsvp = Rsvp.find(params[:rsvp_id])
+    unless params[:rsvp_id] && params[:validation_string]
+      redirect_to '/'
+      return
+    end
+    params['person'].each do |key, person|
+      if person['id'] && person['id'] != ''
         @person = Person.find(person['id'])
       else
         @person =  Person.new
+        @person.rsvp_id = @rsvp.id
+
       end
+
 
       @person.first_name =person['first_name'] if person['first_name']
       @person.last_name = person['last_name'] if person['last_name']
@@ -132,14 +139,16 @@ class RsvpsController < ApplicationController
       @person.age   =     person['age']       if person['age']
 
       @person.save
-
+      @rsvp.people = @rsvp.people + [ "#{@person.id}" ] unless @rsvp.people.include? @person.id
+      @rsvp.save
 
     end
+    redirect_to food_rsvp_path(rsvp_id: @rsvp.id, validation_string: @rsvp.validation_string)
+
 
   end
 
   def food
-    redirect_to rsvp_food_path(rsvp_id: rsvp.id, validation_string: rsvp.validation_string)
 
   end
 

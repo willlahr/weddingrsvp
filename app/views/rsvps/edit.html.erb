@@ -4,6 +4,9 @@
 </div>
 
 <%= form_for @rsvp do %>
+    <%= hidden_field_tag 'rsvp_id', @rsvp.id %>
+    <%= hidden_field_tag 'validation_string', @rsvp.validation_string %>
+
     <% count = @rsvp.people.count  %>
     <div class="people" data-people-count="<%=  @rsvp.people.length  %>" data-count="<%=count%>">
     <% @rsvp.people.each_with_index  do |person_id, index|
