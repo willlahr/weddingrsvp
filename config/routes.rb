@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'final_thanks'
     post 'update_food'
     get 'camping_parking'
+    post 'update_camping_parking'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

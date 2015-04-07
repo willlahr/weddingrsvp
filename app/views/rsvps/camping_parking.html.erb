@@ -2,8 +2,11 @@
   <h1>Accommodation and travel</h1>
 
   <p></p>
-  <%= form_tag update_campgin do %>
+  <%= form_tag update_camping_parking_rsvp_path do %>
 <h3>Accommodation Type</h3>
+      <%= hidden_field_tag 'rsvp_id', @rsvp.id %>
+      <%= hidden_field_tag 'validation_string', @rsvp.validation_string %>
+
       <div class="select-hide-group">
         <%= select_tag :accomodation_type, options_for_select([['--choose--', 'choose'], ['We want to bring a tent/tents', 'camp'], ['We want to hire a tent', 'bellend'], ['Hotel / B&B', 'hotel'], ['No accomodation - just staying for the day', 'day-visit'],], disabled: 'choose', selected: 'choose'), class: 'form-control select-hide' %>
 
@@ -72,7 +75,7 @@
 
       <div>
 
-
+        <%= submit_tag 'Next', class:'btn btn-success' %>
 <% end %>
 
 

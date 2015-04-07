@@ -235,7 +235,7 @@ class RsvpsController < ApplicationController
     @rsvp.save
     sleep 2
 
-    redirect_to final_thanks_path(rsvp_id: @rsvp.id, validation_string: @rsvp.validation_string)
+    redirect_to final_thanks_rsvp_path(rsvp_id: @rsvp.id, validation_string: @rsvp.validation_string)
 
   end
 
