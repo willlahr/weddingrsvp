@@ -218,6 +218,26 @@ class RsvpsController < ApplicationController
 
   end
 
+  def update_camping_parking
+    @rsvp = Rsvp.find(params[:rsvp_id])
+    unless params[:rsvp_id] && params[:validation_string]
+      redirect_to '/'
+      return
+    end
+    unless params[:validation_string] == @rsvp.validation_string
+      redirect_to '/'
+    end
+
+    @rsvp.parking_spaces = params[:parking_spaces] if params[:parking_spaces]
+    @rsvp.hired_tents = params[:hired_tents] if  params[:hired_tents]
+    @rsvp.own_tents = params[:own_tents] if params[:own_tents]
+
+    @rsvp.save
+    sleep 2
+
+    redirect_to final_thanks_path(rsvp_id: @rsvp.id, validation_string: @rsvp.validation_string)
+
+  end
 
   def show
   end

@@ -2,7 +2,7 @@
   <h1>Accommodation and travel</h1>
 
   <p></p>
-  <%= form_tag do %>
+  <%= form_tag update_campgin do %>
 <h3>Accommodation Type</h3>
       <div class="select-hide-group">
         <%= select_tag :accomodation_type, options_for_select([['--choose--', 'choose'], ['We want to bring a tent/tents', 'camp'], ['We want to hire a tent', 'bellend'], ['Hotel / B&B', 'hotel'], ['No accomodation - just staying for the day', 'day-visit'],], disabled: 'choose', selected: 'choose'), class: 'form-control select-hide' %>
