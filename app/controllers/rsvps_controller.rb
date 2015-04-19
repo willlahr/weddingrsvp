@@ -258,7 +258,7 @@ class RsvpsController < ApplicationController
       return
     end
 
-    csv_text = 'attending, email, first name, last name, size, age, food choice, food comments,excuse,parking spaces,rented_tents,own tents'
+    csv_text = "attending, email, first name, last name, size, age, food choice, food comments,excuse,parking spaces,rented_tents,own tents\n"
 
     Person.each do |person|
       if person.made_rsvp
