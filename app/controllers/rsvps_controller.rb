@@ -273,7 +273,7 @@ class RsvpsController < ApplicationController
       else
         csv_text << ','
       end
-      csv_text << "#{person.first_name},#{person.last_name},#{person.size},#{person.age},#{person.food_choice},#{person.food_comments},#{person.message},"
+      csv_text << "#{person.first_name},#{person.last_name},#{person.size},#{person.age},#{person.food_choice},\"#{person.food_comments}\",\"#{person.message}\","
 
       if rsvp
         csv_text << "#{rsvp.parking_spaces},#{rsvp.hired_tents},#{rsvp.own_tents}"
