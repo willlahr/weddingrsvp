@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     post 'update_food'
     get 'camping_parking'
     post 'update_camping_parking'
+    get 'download_info'
+    post 'csv'
   end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

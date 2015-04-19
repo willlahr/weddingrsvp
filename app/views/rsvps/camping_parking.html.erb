@@ -48,7 +48,8 @@
       <%= select_tag :travel_type, options_for_select([['--choose--', 'choose'],['Boat','boat'] ,  ['Train/bus', 'train'], ['Car', 'car'],  ['Motorbike', 'motorbike'], ['Bicycle' , 'bike']], disabled: 'choose', selected: 'choose'), class: 'form-control select-hide' %>
         <div class="form-group select-hide-content white-wrap info-wrap" data-select-hide-for="boat" style="<%= 'display:none;' unless false %>"/>
         <strong>Hurrah!</strong>
-        <p>Extra information</p>
+        <p>     Click for more <%= link_to 'transport information', 'http://rozcurrie.flavors.me/#transport', target: '_blank'%>
+
 
       </div>
       <div class="form-group select-hide-content white-wrap info-wrap" data-select-hide-for="train" style="<%= 'display:none;' unless false %>"/>
@@ -58,14 +59,14 @@
 
       </div>
       <div class="form-group select-hide-content white-wrap info-wrap" data-select-hide-for="car" style="<%= 'display:none;' unless false %>"/>
-      <p>      <%= link_to 'map', 'http://rozcurrie.flavors.me/#directions', target: '_blank'%></p>
+      <p>      <%= link_to 'Map', 'http://rozcurrie.flavors.me/#directions', target: '_blank'%></p>
 
       <%= label_tag :parking_spaces, 'How many parking spaces will you need?' %>
       <%= number_field_tag :parking_spaces, @rsvp.parking_spaces || 0, class: 'form-control' %>
       </div>
       <div class="form-group select-hide-content white-wrap info-wrap" data-select-hide-for="motorbike" style="<%= 'display:none;' unless false %>"/>
       <strong>Hurrah for motorbikes!</strong>
-      <p>      <%= link_to 'map', 'http://rozcurrie.flavors.me/#directions', target: '_blank'%>
+      <p>      <%= link_to 'Map', 'http://rozcurrie.flavors.me/#directions', target: '_blank'%>
       </p>
       </div>
       <div class="form-group select-hide-content white-wrap info-wrap" data-select-hide-for="bike" style="<%= 'display:none;' unless false %>"/>

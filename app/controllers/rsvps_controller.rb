@@ -246,4 +246,43 @@ class RsvpsController < ApplicationController
 
   end
 
+  def download_info
+
+  end
+
+  def csv
+
+    unless params[:password] &&  params[:password] == ENV['DOWNLOAD_PASSWORD']
+      redirect_to download_info_rsvp_path
+    end
+
+    csv_text = 'attending, email, first name, last name, size, age, food choice, food comments,excuse,parking spaces,rented_tents,own tents'
+
+    Person.each do |person|
+      if person.made_rsvp
+        rsvp = Rsvp.find person.rsvp_id
+      else
+        rsvp = nil
+      end
+      csv_text << "#{person.attending},"
+
+      if rsvp
+        csv_text << "#{rsvp.email},"
+      else
+        csv_text << ','
+      end
+      csv_text << "#{person.first_name},#{person.last_name},#{person.size},#{person.age},#{person.food_choice},#{person.food_comments},#{person.message},"
+
+      if rsvp
+        csv_text << "#{rsvp.parking_spaces},#{rsvp.hired_tents},#{rsvp.own_tents}"
+      else
+        csv_text << ',,'
+      end
+      csv_text << "\n"
+    end
+
+    headers['Content-Disposition'] = "attachment; filename=\"wedding.csv\""
+    render text: csv_text, mime_type: 'text/csv'
+
+  end
 end
