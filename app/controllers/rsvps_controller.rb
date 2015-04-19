@@ -253,7 +253,9 @@ class RsvpsController < ApplicationController
   def csv
 
     unless params[:password] &&  params[:password] == ENV['DOWNLOAD_PASSWORD']
+      logger.debug "attempted password: #{params[:password]}, correct password #{ENV['DOWNLOAD_PASSWORD']}"
       redirect_to download_info_rsvp_path
+      return
     end
 
     csv_text = 'attending, email, first name, last name, size, age, food choice, food comments,excuse,parking spaces,rented_tents,own tents'
